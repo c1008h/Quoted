@@ -1,8 +1,8 @@
 import React from 'react'
 import Link from "next/link";
 
-export const Navbar = () => {
-    return (
+const Navbar = () => {
+    return(
         <div className="navbar bg-base-100">
             <div className="flex-1">
                 <a className="btn btn-ghost normal-case text-xl">Quoted</a>
@@ -23,3 +23,23 @@ export const Navbar = () => {
         </div>
     )
 }
+
+const Footer = () => {
+    return (
+        <>
+            <h3>Copyright (c) Chris Hong</h3>
+        </>
+    )
+}
+
+const Layout = ({ children }) => {
+    return (
+        <>
+            <Navbar />
+                {children}
+            <Footer />
+        </>
+    )
+}
+
+export default Layout;
