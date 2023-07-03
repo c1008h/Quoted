@@ -1,16 +1,11 @@
 import React from 'react'
 
-const styles = {
-    display: "flex",
-    flexDirection: "row",
-    position: "fixed",
-    bottom: "0"
-}
-
 export const Footer = () => {
     return (
-        <div styles={styles}>
-            <h3>Copyright (c) Chris Hong</h3>
+        <div className='bg-gray-200 py-4 mt-auto'>
+            <div className="container mx-auto text-center">
+                <h3>Copyright (c) Chris Hong</h3>
+            </div>
         </div>
     )
 }

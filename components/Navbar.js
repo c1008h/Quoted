@@ -1,21 +1,14 @@
 import React from 'react'
 import Link from "next/link";
 
-const styles = {
-    display: "flex",
-    flexDirection: "row",
-    position: "fixed",
-    top: "0"
-}
-
 export const Navbar = () => {
     return(
-        <div className={styles}>
+        <nav className="flex items-center justify-between bg-gray-200 py-4 px-8 w-full">
             <div className="flex-1">
                 <a className="btn btn-ghost normal-case text-xl">Quoted</a>
             </div>
-            <div style={{flex:'row'}}>
-                <ul style={{flex:'row'}} c>
+            <div className="flex space-x-4">
+                <ul className="flex space-x-4">
                     <li>
                         <Link href="/">Home</Link>
                     </li>
@@ -27,6 +20,6 @@ export const Navbar = () => {
                     </li>
                 </ul>
             </div>
-        </div>
+        </nav>
     )
 }
