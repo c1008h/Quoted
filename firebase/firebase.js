@@ -1,20 +1,29 @@
-import firebase from 'firebase/app';
-import 'firebase/firestore';
+import firebase from "firebase";
 
-const firebaseConfig = {
-  // Your Firebase project configuration
-  // You can find these details in your Firebase project settings
-  apiKey: 'YOUR_API_KEY',
-  authDomain: 'YOUR_AUTH_DOMAIN',
-  projectId: 'YOUR_PROJECT_ID',
-  // ...other Firebase project details
+export const firebaseConfig = {
+  apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY,
+  authDomain: process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID,
+//   databaseURL:
+//     "https://" +
+//     process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID +
+//     ".firebaseio.com",
+  projectId: process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID,
+  storageBucket: process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID,
+  messagingSenderId: process.env.MESSAGING_SENDER_ID,
+  appId: process.env.NEXT_PUBLIC_FIREBASE_APP_ID,
 };
 
-// Initialize Firebase
-if (!firebase.apps.length) {
+try {
   firebase.initializeApp(firebaseConfig);
+} catch (err) {
+  if (!/already exists/.test(err.message)) {
+    console.error("Firebase initialization error", err.stack);
+  }
 }
 
-// Export Firestore instance
+const app = firebase.app();
+const auth = firebase.auth();
 const db = firebase.firestore();
-export default db;
+
+export { firebase, auth, db };
+console.log(app.name ? "Firebase Mode Activated!" : "Firebase not working :(");
