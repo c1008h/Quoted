@@ -1,5 +1,6 @@
 import { Navbar } from './Navbar'
 import { Footer } from './Footer'
+import { AuthContextProvider } from '@/context/AuthContext'
 
 export default function Layout({ children }) {
     return (
@@ -7,7 +8,9 @@ export default function Layout({ children }) {
             <Navbar />
             <main className='flex-grow bg-white text-black'>
                 <div className="container mx-auto">
-                    {children}
+                    <AuthContextProvider>
+                        {children}
+                    </AuthContextProvider>
                 </div>
             </main>
             <Footer />
