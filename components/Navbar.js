@@ -5,7 +5,7 @@ export const Navbar = () => {
     return(
         <nav className="flex items-center justify-between bg-gray-200 py-4 px-8 w-full">
             <div className="flex-1">
-                <a className="btn btn-ghost normal-case text-xl">Quoted</a>
+                <Link href='/' className="btn btn-ghost normal-case text-xl">Quoted</Link>
             </div>
             <div className="flex space-x-4">
                 <ul className="flex space-x-4">
